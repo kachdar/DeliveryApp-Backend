@@ -6,7 +6,7 @@ export class Shop {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 120 })
+  @Column({ type: 'varchar', length: 120, nullable: true })
   name: string;
 
   @OneToMany(() => Product, (product) => product.shop, { eager: true })
