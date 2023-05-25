@@ -9,11 +9,11 @@ import { Repository } from 'typeorm';
 export class ProductsService {
   constructor(
     @InjectRepository(Product)
-    private shopRepository: Repository<Product>,
+    private productRepository: Repository<Product>,
   ) {}
 
   create(createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+    return this.productRepository.save(createProductDto);
   }
 
   findAll() {
