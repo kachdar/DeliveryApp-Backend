@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ShopsModule } from './shops/shops.module';
+import { ProductsModule } from './products/products.module';
 import * as fs from 'fs';
 
 @Module({
@@ -26,6 +27,7 @@ import * as fs from 'fs';
       synchronize: true,
     }),
     ShopsModule,
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
