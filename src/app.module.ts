@@ -9,11 +9,11 @@ import * as fs from 'fs';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT),
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
+      host: process.env.NF_POSTGRESDB_HOST,
+      port: parseInt(process.env.NF_POSTGRESDB_PORT),
+      username: process.env.NF_POSTGRESDB_USERNAME,
+      password: process.env.NF_POSTGRESDB_PASSWORD,
+      database: process.env.NF_POSTGRESDB_DATABASE,
       ssl: {
         ca: fs.readFileSync(process.env.SSL_CA_CERTIFICATES),
       },
