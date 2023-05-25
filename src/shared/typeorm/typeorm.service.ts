@@ -20,7 +20,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
         ca: fs.readFileSync(process.env.SSL_CA_CERTIFICATES),
       },
       autoLoadEntities: true,
-      //   synchronize: true,
+      synchronize: true,
     };
   }
 }
