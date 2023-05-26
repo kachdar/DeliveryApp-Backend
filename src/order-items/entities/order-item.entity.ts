@@ -12,7 +12,4 @@ export class OrderItem {
 
   @ManyToOne(() => Product, (product) => product.orderItems)
   product: Product;
-
-  @ManyToOne(() => Order, (order) => order.orderItems)
-  order: Order;
 }

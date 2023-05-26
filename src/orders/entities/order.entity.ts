@@ -26,7 +26,4 @@ export class Order {
 
   @CreateDateColumn({ type: 'timestamptz', default: 'now()' })
   updatedAt: string;
-
-  @OneToMany(() => OrderItem, (orderItem) => orderItem.order)
-  orderItems: OrderItem[];
 }
