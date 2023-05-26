@@ -1,5 +1,11 @@
 import { OrderItem } from 'src/order-items/entities/order-item.entity';
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Order {
@@ -20,6 +26,9 @@ export class Order {
 
   @Column({ type: 'varchar', length: 120 })
   address: string;
+
+  @OneToMany(() => OrderItem, (orderItem) => orderItem.order, { eager: true })
+  orderItems: OrderItem[];
 
   @CreateDateColumn({ type: 'timestamptz', default: 'now()' })
   createdAt: string;
