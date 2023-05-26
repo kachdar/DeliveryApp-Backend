@@ -5,12 +5,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ShopsModule } from './shops/shops.module';
 import { ProductsModule } from './products/products.module';
 import { TypeOrmConfigService } from './shared/typeorm/typeorm.service';
+import { OrderItemsModule } from './order-items/order-items.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
     ShopsModule,
     ProductsModule,
+    OrderItemsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
