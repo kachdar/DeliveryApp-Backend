@@ -4,7 +4,7 @@ import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from 'type
 @Entity()
 export class Order {
   @PrimaryColumn()
-  id: number;
+  id!: number;
 
   @Column({ type: 'numeric' })
   totalPrice: number;

@@ -19,7 +19,6 @@ export class OrdersService {
       email: createOrderDto.email,
       phone: createOrderDto.phone,
       address: createOrderDto.address,
-      orderItems: createOrderDto.orderItems,
     };
     return this.orderRepository.save(createOrderDto);
   }
