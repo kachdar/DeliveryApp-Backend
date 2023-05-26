@@ -17,7 +17,7 @@ export class OrderItemsService {
   }
 
   findAll() {
-    return this.orderItemsRepository.find({ relations: ['order', 'product'] });
+    return this.orderItemsRepository.find();
   }
 
   findOne(id: number) {
