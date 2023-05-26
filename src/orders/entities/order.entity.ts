@@ -1,9 +1,9 @@
 import { OrderItem } from 'src/order-items/entities/order-item.entity';
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Order {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id!: number;
 
   @Column({ type: 'numeric' })
