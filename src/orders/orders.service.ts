@@ -19,7 +19,7 @@ export class OrdersService {
     const order = await this.orderRepository.save(createOrderDto);
 
     createOrderDto.orderItems.forEach((item) =>
-      this.orderItemsRepository.save({ ...item, orderId: order.id }),
+      this.orderItemsRepository.save({ ...item, order }),
     );
 
     return order;
