@@ -13,13 +13,6 @@ export class OrdersService {
   ) {}
 
   create(createOrderDto: CreateOrderDto) {
-    const order = {
-      totalPrice: createOrderDto.totalPrice,
-      username: createOrderDto.username,
-      email: createOrderDto.email,
-      phone: createOrderDto.phone,
-      address: createOrderDto.address,
-    };
     return this.orderRepository.save(createOrderDto);
   }
 
@@ -36,6 +29,6 @@ export class OrdersService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} order`;
+    return this.orderRepository.delete(id);
   }
 }
