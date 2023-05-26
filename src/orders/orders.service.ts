@@ -13,6 +13,14 @@ export class OrdersService {
   ) {}
 
   create(createOrderDto: CreateOrderDto) {
+    const order = {
+      totalPrice: createOrderDto.totalPrice,
+      username: createOrderDto.username,
+      email: createOrderDto.email,
+      phone: createOrderDto.phone,
+      address: createOrderDto.address,
+      orderItems: createOrderDto.orderItems,
+    };
     return this.orderRepository.save(createOrderDto);
   }
 

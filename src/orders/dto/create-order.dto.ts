@@ -1,3 +1,5 @@
+import { OrderItem } from 'src/order-items/entities/order-item.entity';
+
 export class CreateOrderDto {
   totalPrice: number;
 
@@ -9,5 +11,5 @@ export class CreateOrderDto {
 
   address: string;
 
-  orderItemsIds: number[];
+  orderItems: OrderItem[];
 }

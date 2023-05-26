@@ -13,7 +13,7 @@ export class OrderItemsService {
   ) {}
 
   create(createOrderItemDto: CreateOrderItemDto) {
-    return 'This action adds a new orderItem';
+    return `This action returns all orderItems`;
   }
 
   findAll() {
