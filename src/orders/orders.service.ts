@@ -18,9 +18,11 @@ export class OrdersService {
   async create(createOrderDto: CreateOrderDto) {
     const order = await this.orderRepository.save(createOrderDto);
 
-    createOrderDto.orderItems.forEach((item) =>
-      this.orderItemsRepository.save({ order, ...item }),
+    const orderItems = createOrderDto.orderItems.map((item) =>
+      this.orderItemsRepository.create({ ...item, order }),
     );
+
+    this.orderItemsRepository.save(orderItems);
 
     return order;
   }
