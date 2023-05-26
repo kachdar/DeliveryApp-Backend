@@ -12,4 +12,11 @@ export class OrderItem {
 
   @ManyToOne(() => Product, (product) => product.orderItems)
   product: Product;
+
+  @ManyToOne(() => Order, (order) => order.orderItems, {
+    eager: false,
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
+  order: Order;
 }
