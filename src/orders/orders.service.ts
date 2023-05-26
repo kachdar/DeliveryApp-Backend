@@ -9,11 +9,11 @@ import { Repository } from 'typeorm';
 export class OrdersService {
   constructor(
     @InjectRepository(Order)
-    private orderItemsRepository: Repository<Order>,
+    private orderRepository: Repository<Order>,
   ) {}
 
   create(createOrderDto: CreateOrderDto) {
-    return 'This action adds a new order';
+    return this.orderRepository.save(createOrderDto);
   }
 
   findAll() {
