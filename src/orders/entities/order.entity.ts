@@ -16,7 +16,7 @@ export class Order {
   totalPrice: number;
 
   @Column({ type: 'varchar', length: 120 })
-  username: string;
+  name: string;
 
   @Column({ type: 'varchar', length: 120 })
   email: string;
