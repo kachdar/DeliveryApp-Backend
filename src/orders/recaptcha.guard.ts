@@ -13,6 +13,7 @@ export class RecaptchaGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const { body } = context.switchToHttp().getRequest();
+    console.log(body);
     const secretKey = '6Leo80YmAAAAAGE6BkzWhFTLdgvH9rDyLwMJ40tc';
     const url = `https://www.google.com/recaptcha/api/siteverify?response=${body.token}&secret=${secretKey}`;
     const { data } = await lastValueFrom(this.httpService.post(url));
