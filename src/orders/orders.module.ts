@@ -5,10 +5,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Order } from './entities/order.entity';
 import { OrderItem } from 'src/order-items/entities/order-item.entity';
 import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Order, OrderItem]),
+    HttpModule,
     GoogleRecaptchaModule.forRoot({
       secretKey: '6Leo80YmAAAAAGE6BkzWhFTLdgvH9rDyLwMJ40tc',
       response: (req) => req.headers.recaptcha,
