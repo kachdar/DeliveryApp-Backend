@@ -18,7 +18,7 @@ export class RecaptchaGuard implements CanActivate {
     const { data } = await lastValueFrom(this.httpService.post(url));
 
     if (!data.success) {
-      throw new ForbiddenException();
+      throw new ForbiddenException(`${body.token}, ${secretKey}, ${data}`);
     }
 
     return true;
