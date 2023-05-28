@@ -15,7 +15,7 @@ export class RecaptchaGuard implements CanActivate {
     const { body } = context.switchToHttp().getRequest();
     const secretKey = '6Leo80YmAAAAAGE6BkzWhFTLdgvH9rDyLwMJ40tc';
     const url = `https://www.google.com/recaptcha/api/siteverify?response=${body.token}&secret=${secretKey}`;
-    const { data } = await firstValueFrom(this.httpService.post(url));
+    const { data } = await this.httpService.post(url).toPromise();
 
     if (!data.success) {
       throw new ForbiddenException();
