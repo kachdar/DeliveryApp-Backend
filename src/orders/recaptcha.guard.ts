@@ -16,9 +16,10 @@ export class RecaptchaGuard implements CanActivate {
 
     const secretKey = '6Leo80YmAAAAAGE6BkzWhFTLdgvH9rDyLwMJ40tc';
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${res.body.recaptcha}`;
-    console.log(res.body.recaptcha);
+    console.log(url);
 
-    //const { data } = await lastValueFrom(this.httpService.post(url));
+    const data = await lastValueFrom(this.httpService.post(url));
+    console.log(data)
 
     // console.log(data.success);
 
