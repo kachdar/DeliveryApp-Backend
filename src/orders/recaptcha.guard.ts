@@ -21,7 +21,7 @@ export class RecaptchaGuard implements CanActivate {
     console.log(data.success);
 
     if (!data.success) {
-      throw new ForbiddenException(`${body.token}, ${secretKey}, ${data}`);
+      throw new ForbiddenException(`${body.recaptcha}, ${secretKey}, ${data}`);
     }
 
     return true;
