@@ -11,4 +11,8 @@ export class CreateShopDto {
   @IsNumber()
   @IsOptional()
   lng: number;
+
+  @IsString()
+  @IsOptional()
+  address: string;
 }
