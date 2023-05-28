@@ -17,7 +17,7 @@ export class RecaptchaGuard implements CanActivate {
     const url = `https://www.google.com/recaptcha/api/siteverify?response=${body.token}&secret=${secretKey}`;
     const { data } = await firstValueFrom(this.httpService.post(url));
 
-    if (!data.success || data.score < 0.7) {
+    if (!data.success || data.score < 0.6) {
       throw new ForbiddenException();
     }
 
