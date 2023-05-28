@@ -5,7 +5,7 @@ import {
   ExecutionContext,
   ForbiddenException,
 } from '@nestjs/common';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class RecaptchaGuard implements CanActivate {
@@ -15,7 +15,7 @@ export class RecaptchaGuard implements CanActivate {
     const { body } = context.switchToHttp().getRequest();
     const secretKey = '6Leo80YmAAAAAGE6BkzWhFTLdgvH9rDyLwMJ40tc';
     const url = `https://www.google.com/recaptcha/api/siteverify?response=${body.token}&secret=${secretKey}`;
-    const { data } = await this.httpService.post(url).toPromise();
+    const { data } = await lastValueFrom(this.httpService.post(url));
 
     if (!data.success) {
       throw new ForbiddenException();
