@@ -9,6 +9,12 @@ export class Shop {
   @Column({ type: 'varchar', length: 120, nullable: true })
   name: string;
 
+  @Column({type: 'numeric', nullable: true})
+  lat: number;
+
+  @Column({type: 'numeric', nullable: true})
+  lng: number;
+
   @OneToMany(() => Product, (product) => product.shop, { eager: true })
   products: Product[];
 }

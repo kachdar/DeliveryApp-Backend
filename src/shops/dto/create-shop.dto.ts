@@ -1,3 +1,14 @@
+import { IsNumber, IsOptional, IsString } from 'class-validator';
+
 export class CreateShopDto {
-    name: string;
+  @IsString()
+  name: string;
+
+  @IsNumber()
+  @IsOptional()
+  lat: number;
+
+  @IsNumber()
+  @IsOptional()
+  lng: number;
 }
