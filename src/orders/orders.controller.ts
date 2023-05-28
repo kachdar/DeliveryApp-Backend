@@ -11,7 +11,6 @@ import {
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
-import { Recaptcha } from '@nestlab/google-recaptcha';
 import { RecaptchaGuard } from './recaptcha.guard';
 
 @Controller('orders')
