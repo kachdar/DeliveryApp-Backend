@@ -15,6 +15,7 @@ export class RecaptchaGuard implements CanActivate {
     const res = context.switchToHttp().getRequest();
 
     const secretKey = process.env.GOOGLE_MAPS_SECRET_KEY;
+    console.log(secretKey);
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${res.body.recaptcha}`;
 
     const response = await lastValueFrom(this.httpService.post(url));
