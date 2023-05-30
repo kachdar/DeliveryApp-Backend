@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateShopDto } from './dto/create-shop.dto';
 import { UpdateShopDto } from './dto/update-shop.dto';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Shop } from './entities/shop.entity';
-import { Repository } from 'typeorm';
 import { Product } from 'src/products/entities/product.entity';
 
 @Injectable()
@@ -12,33 +12,33 @@ export class ShopsService {
     @InjectRepository(Shop)
     private shopRepository: Repository<Shop>,
     @InjectRepository(Product)
-    private productRepository: Repository<Product>
+    private productRepository: Repository<Product>,
   ) {}
 
-  create(createDestinationDto: CreateShopDto) {
-    return this.shopRepository.save(createDestinationDto);
+  async create(createShopDto: CreateShopDto) {
+    return await this.shopRepository.save(createShopDto);
   }
 
-  findAll() {
-    return this.shopRepository.find();
+  async findAll() {
+    return await this.shopRepository.find();
   }
 
   async findOne(id: number) {
-    return await this.shopRepository.findOne({where: {id}});
+    return await this.shopRepository.findOne({ where: { id } });
   }
 
   async findProductsByShopId(id: number) {
     return this.productRepository.find({
-      relations: ["shop"], 
-      where: {shop: await this.findOne(id)}
+      relations: ['shop'],
+      where: { shop: await this.findOne(id) },
     });
   }
 
-  update(id: number, updateDestinationDto: UpdateShopDto) {
-    return this.shopRepository.update(id, updateDestinationDto);
+  async update(id: number, updateShopDto: UpdateShopDto) {
+    return await this.shopRepository.update(id, updateShopDto);
   }
 
-  remove(id: number) {
-    return this.shopRepository.delete(id);
+  async remove(id: number) {
+    return await this.shopRepository.delete(id);
   }
 }
